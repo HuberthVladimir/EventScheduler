@@ -1,8 +1,12 @@
 package com.huberthvladimir.EventScheduler.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 public class Participante {
 
@@ -13,6 +17,9 @@ public class Participante {
     private String nome;
 
     private String email;
+
+    @ManyToMany(mappedBy = "participantes")
+    private Set<Atividade> atividades = new HashSet<>();
 
     public Participante() {}
 
@@ -46,5 +53,7 @@ public class Participante {
         this.email = email;
     }
 
-
+    public Set<Atividade> getAtividades() {
+        return atividades;
+    }
 }
