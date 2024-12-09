@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class Participante {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String nome;
